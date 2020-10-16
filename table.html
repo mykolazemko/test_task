@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body >
-    <input class="info" type = "text" placeholder="Enter ID here...">
+    <input class="info" type = "text" placeholder="0 to 29 ID here...">
     <button class="btn" onclick="change()">Search</button>  
     <button class="storage" onclick="toStorage()">Add to Local Storage</button>    
     <script>
@@ -69,12 +69,12 @@ function render(){
                     if (j!=0 ){
                         text = document.createTextNode(Object.values(object[searchRepo])[i]); //value in table
                         
-                    if(typeof(document.createTextNode) == "[object Object]"){
-                        let row = "5555"
-                        
-                     console.log(row)
+                    //     if(typeof(document.createTextNode) == "[object Object]"){
+                    //         let row = "5555"
+                            
+                    //     console.log(row)
+                    //     }
                     }
-                }
                 td.appendChild(text);                       
                 
                 tr.appendChild(td);
