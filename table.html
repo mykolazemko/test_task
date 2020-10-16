@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <input class="info" type = "text" placeholder="Enter ID here...">
+    <button class="btn" onclick="change()">Search</button>  
+    <button class="storage" onclick="toStorage()">Add to Local Storage</button>    
+    <script>
+      let object;
+       let ids = [];
+       let idArr = [];
+       let input = document.querySelector(".info");
+        let button = document.querySelector(".btn");
+        let container = document.querySelector(".btn");
+        let searchRepo ;
+
+        function toStorage(){
+    localStorage.setItem(ids[searchRepo],object[searchRepo])
+  } 
+        function change(){
+            
+            searchRepo = input.value;
+        
+    //    function change(){     
+    //    ids.forEach(function(item, i, arr) {
+    //         if(item == input.value) {
+    //             searchRepo = i
+    //             console.log(searchRepo)                            
+    //         }
+    //        });
+    //        update()
+    //         return searchRepo
+    //     }
+       console.log(searchRepo)
+
+render()
+function render(){
+  fetch("https://api.github.com/search/repositories?q=KEYWORD")
+  .then((data)=>data.json())
+   .then((data)=>{  
+              object =  data.items;
+       console.log(object)                   // items
+              Object.getOwnPropertyNames(object).forEach(
+              function (val, idx, array) {
+                  x=( object[val]);
+                }
+              );
+              for(i=0; i<object.length; i++){
+          ids.push(object[i].id) 
+     }
+    })       
+    .then((data) => {                // table
+      let body = document.getElementsByTagName("body")[0];
+      let table = document.createElement("table");
+      let tableBody = document.createElement("tbody");      
+      let value = Object.getOwnPropertyNames(object).forEach(
+          function (val, idx, array) {
+              object[val];
+      })
+      for (let i = 0; i < Object.keys(object).length; i++) { 
+                let tr = document.createElement("tr"); 
+                for (let j = 0; j < 2; j++) {                   
+                    let td = document.createElement("td"); 
+                    let text = document.createTextNode(Object.getOwnPropertyNames(object[0])[i]); //key in table
+                    if (j!=0 ){
+                        text = document.createTextNode(Object.values(object[searchRepo])[i]); //value in table
+                        
+                    if(typeof(document.createTextNode) == "[object Object]"){
+                        let row = "5555"
+                        
+                     console.log(row)
+                    }
+                }
+                td.appendChild(text);                       
+                
+                tr.appendChild(td);
+            }
+            tableBody.appendChild(tr);
+        }
+        table.appendChild(tableBody);
+
+body.appendChild(table);
+table.setAttribute("border", "1");
+
+    })
+}
+
+}
+
+
+
+
+            
+           
+     </script>
+    </body>
+</html>
